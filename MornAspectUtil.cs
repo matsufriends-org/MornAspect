@@ -14,26 +14,17 @@ namespace MornAspect
 
         internal static void Log(string message)
         {
-            if (ShowLOG)
-            {
-                Debug.Log(Prefix + message);
-            }
+            if (ShowLOG) Debug.Log(Prefix + message);
         }
 
         internal static void LogError(string message)
         {
-            if (ShowLOG)
-            {
-                Debug.LogError(Prefix + message);
-            }
+            if (ShowLOG) Debug.LogError(Prefix + message);
         }
 
         internal static void LogWarning(string message)
         {
-            if (ShowLOG)
-            {
-                Debug.LogWarning(Prefix + message);
-            }
+            if (ShowLOG) Debug.LogWarning(Prefix + message);
         }
     }
 }

@@ -2,11 +2,12 @@
 
 namespace MornAspect
 {
-    [CreateAssetMenu(fileName = nameof(MornAspectGlobalSettings), menuName = "Morn/" + nameof(MornAspectGlobalSettings))]
+    [CreateAssetMenu(fileName = nameof(MornAspectGlobalSettings),
+        menuName = "Morn/" + nameof(MornAspectGlobalSettings))]
     internal sealed class MornAspectGlobalSettings : ScriptableObject
     {
-        internal static MornAspectGlobalSettings Instance { get; private set; }
         [SerializeField] private Vector2 _resolution = new(1920, 1080);
+        internal static MornAspectGlobalSettings Instance { get; private set; }
 
         internal Vector2 Resolution => _resolution;
 

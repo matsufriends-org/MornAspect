@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,22 +15,19 @@ namespace MornAspect
             AdjustCanvas();
         }
 
-        private void Update()
-        {
-            AdjustCanvas();
-        }
-
         private void Reset()
         {
             _canvasScaler = GetComponent<CanvasScaler>();
         }
 
+        private void Update()
+        {
+            AdjustCanvas();
+        }
+
         private void AdjustCanvas()
         {
-            if (MornAspectGlobalSettings.Instance == null)
-            {
-                return;
-            }
+            if (MornAspectGlobalSettings.Instance == null) return;
 
             var settings = MornAspectGlobalSettings.Instance;
             var anyChanged = false;
@@ -58,7 +56,7 @@ namespace MornAspect
             if (anyChanged)
             {
 #if UNITY_EDITOR
-                UnityEditor.EditorUtility.SetDirty(_canvasScaler);
+                EditorUtility.SetDirty(_canvasScaler);
 #endif
             }
         }
