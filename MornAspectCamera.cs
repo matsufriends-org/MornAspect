@@ -26,12 +26,12 @@ namespace MornAspect
         private void AdjustCamera()
         {
             var screenRes = new Vector2(Screen.width, Screen.height);
-            if (MornAspectSettings.Instance == null)
+            if (MornAspectGlobalSettings.Instance == null)
             {
                 return;
             }
 
-            var settings = MornAspectSettings.Instance;
+            var settings = MornAspectGlobalSettings.Instance;
             var currentAspect = screenRes.y / screenRes.x;
             var aimAspect = settings.Resolution.y / settings.Resolution.x;
             Rect newRect;

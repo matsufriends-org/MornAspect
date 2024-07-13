@@ -26,12 +26,12 @@ namespace MornAspect
 
         private void AdjustCanvas()
         {
-            if (MornAspectSettings.Instance == null)
+            if (MornAspectGlobalSettings.Instance == null)
             {
                 return;
             }
 
-            var settings = MornAspectSettings.Instance;
+            var settings = MornAspectGlobalSettings.Instance;
             var anyChanged = false;
 
             if (_canvasScaler.uiScaleMode != CanvasScaler.ScaleMode.ScaleWithScreenSize)
