@@ -12,8 +12,7 @@ namespace MornAspect
 #else
         private const bool ShowLOG = true;
 #endif
-
-        private const string Prefix = "[MornAspect] ";
+        private const string Prefix = "[<color=green>MornAspect</color>] ";
 
         internal static void Log(string message)
         {
