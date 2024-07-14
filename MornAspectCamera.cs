@@ -1,5 +1,4 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace MornAspect
 {
@@ -26,9 +25,8 @@ namespace MornAspect
 
         private void AdjustCamera()
         {
-            var screenRes = new Vector2(Screen.width, Screen.height);
             if (MornAspectGlobalSettings.Instance == null) return;
-
+            var screenRes = new Vector2(Screen.width, Screen.height);
             var settings = MornAspectGlobalSettings.Instance;
             var currentAspect = screenRes.y / screenRes.x;
             var aimAspect = settings.Resolution.y / settings.Resolution.x;
@@ -43,14 +41,11 @@ namespace MornAspect
                 newRect = new Rect(0, 0, 1, 1);
             }
 
-            var curRect = _targetCamera.rect;
-            if (curRect != newRect)
+            if (_targetCamera.rect != newRect)
             {
                 _targetCamera.rect = newRect;
                 MornAspectUtil.Log("Camera Rect Adjusted");
-#if UNITY_EDITOR
-                EditorUtility.SetDirty(_targetCamera);
-#endif
+                MornAspectUtil.SetDirty(_targetCamera);
             }
         }
     }

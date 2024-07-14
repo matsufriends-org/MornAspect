@@ -1,4 +1,7 @@
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace MornAspect
 {
@@ -25,6 +28,13 @@ namespace MornAspect
         internal static void LogWarning(string message)
         {
             if (ShowLOG) Debug.LogWarning(Prefix + message);
+        }
+
+        internal static void SetDirty(Object obj)
+        {
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(obj);
+#endif
         }
     }
 }

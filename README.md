@@ -12,8 +12,8 @@
 
 # 使い方
 
-- `Project` 欄を右クリックし、`Morn/MornAspectSettings`を作成する
-    - 作成した`MornAspectSettings`を選択し、`Resolution`に設定したい解像度を設定する
+- `Project` 欄を右クリックし、`Morn/MornAspectGlobalSettings`を作成する
+    - 作成した`MornAspectGlobalSettings`を選択し、`Resolution`に設定したい解像度を設定する
 - 任意の`Canvas`に`MornAspectCanvasScaler`をアタッチすると、自動でアスペクト比が設定される
 - 任意の`Camera`に`MornAspectCamera`をアタッチすると、自動でアスペクト比が設定される
 
