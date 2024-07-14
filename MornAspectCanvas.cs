@@ -11,7 +11,7 @@ namespace MornAspect
 
         private void Awake()
         {
-            AdjustCanvas();
+            if (Application.isPlaying) AdjustCanvas();
         }
 
         private void Reset()

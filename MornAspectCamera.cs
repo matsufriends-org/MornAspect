@@ -10,7 +10,7 @@ namespace MornAspect
 
         private void Awake()
         {
-            AdjustCamera();
+            if (Application.isPlaying) AdjustCamera();
         }
 
         private void Reset()
