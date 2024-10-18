@@ -1,7 +1,7 @@
 {
     "name": "MornAspect",
     "rootNamespace": "MornAspect",
-    "references": [],
+    "references": ["GUID:9fb3b15b1474476cbe64c6bd63468fb6"],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

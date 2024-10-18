@@ -25,9 +25,9 @@ namespace MornAspect
 
         private void AdjustCamera()
         {
-            if (MornAspectGlobalSettings.Instance == null) return;
+            if (MornAspectGlobal.I == null) return;
             var screenRes = new Vector2(Screen.width, Screen.height);
-            var settings = MornAspectGlobalSettings.Instance;
+            var settings = MornAspectGlobal.I;
             var currentAspect = screenRes.y / screenRes.x;
             var aimAspect = settings.Resolution.y / settings.Resolution.x;
             Rect newRect;
@@ -44,8 +44,8 @@ namespace MornAspect
             if (_targetCamera.rect != newRect)
             {
                 _targetCamera.rect = newRect;
-                MornAspectUtil.Log("Camera Rect Adjusted");
-                MornAspectUtil.SetDirty(_targetCamera);
+                MornAspectGlobal.I.Log("Camera Rect Adjusted");
+                MornAspectGlobal.I.SetDirty(_targetCamera);
             }
         }
     }
