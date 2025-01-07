@@ -8,6 +8,7 @@ namespace MornAspect
     internal class MornAspectCanvas : MonoBehaviour
     {
         [SerializeField] private CanvasScaler _canvasScaler;
+        [SerializeField] private RectTransform _contents;
 
         private void Awake()
         {
@@ -27,26 +28,33 @@ namespace MornAspect
         private void AdjustCanvas()
         {
             if (MornAspectGlobal.I == null) return;
-            var settings = MornAspectGlobal.I;
+            var global = MornAspectGlobal.I;
             if (_canvasScaler.uiScaleMode != CanvasScaler.ScaleMode.ScaleWithScreenSize)
             {
                 _canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-                MornAspectGlobal.I.Log("Canvas Scale Mode Adjusted");
-                MornAspectGlobal.I.SetDirty(_canvasScaler);
+                global.Log("Canvas Scale Mode Adjusted");
+                global.SetDirty(_canvasScaler);
             }
 
-            if (_canvasScaler.referenceResolution != settings.Resolution)
+            if (_canvasScaler.referenceResolution != global.Resolution)
             {
-                _canvasScaler.referenceResolution = settings.Resolution;
-                MornAspectGlobal.I.Log("Canvas Reference Resolution Adjusted");
-                MornAspectGlobal.I.SetDirty(_canvasScaler);
+                _canvasScaler.referenceResolution = global.Resolution;
+                global.Log("Canvas Reference Resolution Adjusted");
+                global.SetDirty(_canvasScaler);
             }
 
             if (_canvasScaler.screenMatchMode != CanvasScaler.ScreenMatchMode.Expand)
             {
                 _canvasScaler.screenMatchMode = CanvasScaler.ScreenMatchMode.Expand;
-                MornAspectGlobal.I.Log("Canvas Screen Match Mode Adjusted");
-                MornAspectGlobal.I.SetDirty(_canvasScaler);
+                global.Log("Canvas Screen Match Mode Adjusted");
+                global.SetDirty(_canvasScaler);
+            }
+            
+            if (_contents != null && _contents.sizeDelta != global.Resolution)
+            {
+                _contents.sizeDelta = global.Resolution;
+                global.Log("Contents Size Delta Adjusted");
+                global.SetDirty(_contents);
             }
         }
     }
