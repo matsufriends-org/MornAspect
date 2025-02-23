@@ -44,8 +44,8 @@ namespace MornAspect
             if (_targetCamera.rect != newRect)
             {
                 _targetCamera.rect = newRect;
-                MornAspectGlobal.I.Log("Camera Rect Adjusted");
-                MornAspectGlobal.I.SetDirty(_targetCamera);
+                MornAspectGlobal.Log("Camera Rect Adjusted");
+                MornAspectGlobal.SetDirty(_targetCamera);
             }
         }
     }

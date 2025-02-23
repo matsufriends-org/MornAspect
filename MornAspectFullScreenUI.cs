@@ -30,8 +30,8 @@ namespace MornAspect
             if (_rect != null && _rect.sizeDelta != global.Resolution)
             {
                 _rect.sizeDelta = global.Resolution;
-                global.Log("Rect Transform Size Adjusted");
-                global.SetDirty(_rect);
+                MornAspectGlobal.Log("Rect Transform Size Adjusted");
+                MornAspectGlobal.SetDirty(_rect);
             }
         }
     }

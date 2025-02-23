@@ -32,29 +32,29 @@ namespace MornAspect
             if (_canvasScaler.uiScaleMode != CanvasScaler.ScaleMode.ScaleWithScreenSize)
             {
                 _canvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-                global.Log("Canvas Scale Mode Adjusted");
-                global.SetDirty(_canvasScaler);
+                MornAspectGlobal.Log("Canvas Scale Mode Adjusted");
+                MornAspectGlobal.SetDirty(_canvasScaler);
             }
 
             if (_canvasScaler.referenceResolution != global.Resolution)
             {
                 _canvasScaler.referenceResolution = global.Resolution;
-                global.Log("Canvas Reference Resolution Adjusted");
-                global.SetDirty(_canvasScaler);
+                MornAspectGlobal.Log("Canvas Reference Resolution Adjusted");
+                MornAspectGlobal.SetDirty(_canvasScaler);
             }
 
             if (_canvasScaler.screenMatchMode != CanvasScaler.ScreenMatchMode.Expand)
             {
                 _canvasScaler.screenMatchMode = CanvasScaler.ScreenMatchMode.Expand;
-                global.Log("Canvas Screen Match Mode Adjusted");
-                global.SetDirty(_canvasScaler);
+                MornAspectGlobal.Log("Canvas Screen Match Mode Adjusted");
+                MornAspectGlobal.SetDirty(_canvasScaler);
             }
             
             if (_contents != null && _contents.sizeDelta != global.Resolution)
             {
                 _contents.sizeDelta = global.Resolution;
-                global.Log("Contents Size Delta Adjusted");
-                global.SetDirty(_contents);
+                MornAspectGlobal.Log("Contents Size Delta Adjusted");
+                MornAspectGlobal.SetDirty(_contents);
             }
         }
     }
