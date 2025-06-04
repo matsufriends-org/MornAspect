@@ -3,38 +3,26 @@
 namespace MornAspect
 {
     [RequireComponent(typeof(Camera))]
-    [ExecuteAlways]
-    internal sealed class MornAspectCamera : MonoBehaviour
+    internal sealed class MornAspectCamera : MornAspectComponentBase
     {
         [SerializeField] private Camera _targetCamera;
         [SerializeField, Range(0, 1f)] private float _scale = 1;
-
-        private void Awake()
-        {
-            if (Application.isPlaying)
-                AdjustCamera();
-        }
 
         private void Reset()
         {
             _targetCamera = GetComponent<Camera>();
         }
 
-        private void Update()
+        protected override void AdjustAspect()
         {
-            AdjustCamera();
-        }
-
-        private void AdjustCamera()
-        {
-            if (MornAspectGlobal.I == null)
+            if (!TryGetGlobal(out var global))
                 return;
+            
             var screenRes = new Vector2(Screen.width, Screen.height);
-            var settings = MornAspectGlobal.I;
             var currentAspect = screenRes.y / screenRes.x;
-            var aimAspect = settings.Resolution.y / settings.Resolution.x;
+            var aimAspect = global.Resolution.y / global.Resolution.x;
             Rect newRect;
-            if (Mathf.Abs(currentAspect - aimAspect) < 0.001f || currentAspect <= aimAspect)
+            if (Mathf.Abs(currentAspect - aimAspect) < ASPECT_TOLERANCE || currentAspect <= aimAspect)
             {
                 newRect = new Rect(0, 0, 1, 1);
             }
@@ -52,8 +40,7 @@ namespace MornAspect
             if (_targetCamera.rect != newRect)
             {
                 _targetCamera.rect = newRect;
-                MornAspectGlobal.Log("Camera Rect Adjusted");
-                MornAspectGlobal.SetDirty(_targetCamera);
+                MornAspectGlobal.LogAndSetDirty("Camera Rect Adjusted", _targetCamera);
             }
         }
     }
