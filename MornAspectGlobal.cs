@@ -10,26 +10,24 @@ namespace MornAspect
         [SerializeField] private Vector2 _resolution = new(1920, 1080);
         public Vector2 Resolution => _resolution;
         
-        public static void Log(string message)
+        internal static void Log(string message)
         {
             I.LogInternal(message);
         }
 
-        public static void LogWarning(string message)
+        internal static void LogWarning(string message)
         {
             I.LogWarningInternal(message);
         }
 
-        public static void LogError(string message)
+        internal static void LogError(string message)
         {
             I.LogErrorInternal(message);
         }
 
-        public static void SetDirty(Object obj)
+        internal static void SetDirty(Object obj)
         {
-#if UNITY_EDITOR
-            UnityEditor.EditorUtility.SetDirty(obj);
-#endif
+            I.SetDirtyInternal();
         }
     }
 }
