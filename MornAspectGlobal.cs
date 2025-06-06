@@ -27,7 +27,7 @@ namespace MornAspect
 
         internal static void SetDirty(Object obj)
         {
-            I.SetDirtyInternal();
+            I.SetDirtyInternal(obj);
         }
 
         internal static void LogAndSetDirty(string message, Object obj)
